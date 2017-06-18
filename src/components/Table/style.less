@@ -1,0 +1,72 @@
+section.cars {
+    padding: 20px 15px;
+    .add-car {
+        border-radius: 2px;
+        padding: 10px 25px;
+        font-size: 15px;
+        margin-left: -15px;
+        font-weight: 500;
+        background-color: #4aba58;
+    }
+    .input-group {
+        max-width: 250px;
+        float: right;
+        margin-right: -15px;
+        .form-control{
+            border-radius: 2px;
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            border: 1px solid #a5aeb4;
+            height: 44px;
+        }
+        .input-group-addon {
+            color: #3b5c7c;
+            cursor: pointer;
+        }
+    }
+    table.table {
+        margin-top: 20px;
+        //border-top-left-radius: 5px;
+        //border-top-right-radius: 5px;
+        border-bottom: 1px solid #648795;
+        border-radius: 4px;
+        thead {
+            border: 1px solid #648795;
+            td {
+                padding: 5px 10px;
+                background-color: #f8fafc;
+                color: #395b7b;
+                vertical-align: middle;
+                font-size: 13px;
+                p {
+                    margin: 0;
+                }
+            }
+        }
+        tbody {
+            tr {
+                border: 1px solid #648795;
+                &:hover {
+                    background-color: #d8e9fb;
+                    border: 1px solid #91caf6;
+                    td {
+                        border-top: 1px solid #91caf6;
+                        border-bottom: 1px solid #91caf6;
+                    }
+                }
+                td {
+                    vertical-align: middle;
+                    border-left: none;
+                    border-right: none;
+                    color: #648795;
+                    font-size: 13px;
+                    p {
+                        margin: 0;
+
+                    }
+                }
+            }
+        }
+    }
+
+}
