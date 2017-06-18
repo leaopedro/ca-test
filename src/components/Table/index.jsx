@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 
 import TableItem from './TableItem.jsx';
+import CarAdder from './CarAdder.jsx';
 import Checkbox from './../GeneralComponents/Checkbox.jsx';
 
 import './style.less';
@@ -11,11 +12,14 @@ class Table extends React.Component {
         super(props);
         this.state = {
             search: '',
+            carAdderVisible: false,
         };
 
         this.onClickSearch = this.onClickSearch.bind(this);
         this.onChangeSearch = this.onChangeSearch.bind(this);
         this.onKeyPress = this.onKeyPress.bind(this);
+        this.showAdder = this.showAdder.bind(this);
+        this.closeAdder = this.closeAdder.bind(this);
     }
 
     componentDidMount() {
@@ -38,6 +42,13 @@ class Table extends React.Component {
             this.onClickSearch();
         }
     }
+    showAdder() {
+        this.setState({ carAdderVisible: true });
+    }
+    closeAdder() {
+        this.setState({ carAdderVisible: false });
+    }
+
     render() {
         const items = [];
         for (let i = 0; i < this.props.items.length; i++) {
@@ -47,9 +58,10 @@ class Table extends React.Component {
         }
         return (
             <section className="cars">
+                <CarAdder show={this.state.carAdderVisible} close={this.closeAdder} addCar={this.props.addCar} />
                 <div className="container">
                     <div className="col-xs-6">
-                        <button className="btn btn-success add-car">Novo Carro</button>
+                        <button className="btn btn-success add-car" onClick={this.showAdder}>Novo Carro</button>
                     </div>
                     <div className="col-xs-6">
                         <div className="input-group">
@@ -88,6 +100,7 @@ Table.propTypes = {
     selectedItems: PropTypes.array.isRequired,
     toggleSelectAll: PropTypes.func.isRequired,
     toggleSelected: PropTypes.func.isRequired,
+    addCar: PropTypes.func.isRequired,
 };
 
 export default Table;

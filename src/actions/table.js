@@ -74,7 +74,18 @@ export function triggerSearch(query) {
 export function resetItems() {
     return (dispatch, getState) => {
         const state = Object.assign({}, getState());
-        let items = state.table.defaultItems;
+        const items = state.table.defaultItems;
+        dispatch(receiveItems(items));
+    }
+}
+export function addCar(car) {
+    console.log(car);
+    return (dispatch, getState) => {
+        const state = Object.assign({}, getState());
+        const items = state.table.defaultItems;
+        car.id = items.length+1;
+        items.push(car);
+        console.log(items);
         dispatch(receiveItems(items));
     }
 }

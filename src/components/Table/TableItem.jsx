@@ -14,6 +14,7 @@ class TableItem extends React.Component {
         this.props.toggleSelected(this.props.item.id);
     }
     render() {
+        console.log(this.props.item);
         return (
             <tr className="table-item">
                 <td><Checkbox checked={this.props.isSelected} error={false} onValueChange={this.toggleChecked} label="" /></td>

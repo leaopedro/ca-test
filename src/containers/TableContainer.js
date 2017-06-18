@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Table from '../components/Table/index.jsx';
-import { fetchItems, toggleSelected, toggleSelectAll, resetItems, triggerSearch } from '../actions';
+import { fetchItems, toggleSelected, toggleSelectAll, resetItems, triggerSearch, addCar } from '../actions';
 
 
 function mapStateToProps(state) {
@@ -21,6 +21,9 @@ function mapDispatchToProps(dispatch) {
         },
         triggerSearch: (id) => {
             dispatch(triggerSearch(id));
+        },
+        addCar: (car) => {
+            dispatch(addCar(car));
         },
         resetItems: () => {
             dispatch(resetItems());
