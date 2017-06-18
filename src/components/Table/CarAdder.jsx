@@ -31,11 +31,39 @@ class CarAdder extends React.Component {
                     id: 'valor',
                 },
             },
-
         };
 
         this.addCar = this.addCar.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.getDefaultState = this.getDefaultState.bind(this);
+    }
+
+    getDefaultState() {
+        return {
+            error: null,
+            form: {
+                plate: {
+                    value: '',
+                    id: 'placa',
+                },
+                model: {
+                    value: '',
+                    id: 'modelo',
+                },
+                brand: {
+                    value: '',
+                    id: 'marca',
+                },
+                fuel: {
+                    value: '',
+                    id: 'combustivel',
+                },
+                price: {
+                    value: '',
+                    id: 'valor',
+                },
+            },
+        };
     }
     handleChange(e) {
         const field = e.target;
@@ -58,6 +86,7 @@ class CarAdder extends React.Component {
             }
         }
         this.props.addCar(car);
+        this.setState(this.getDefaultState);
         this.props.close();
     }
     render() {

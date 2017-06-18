@@ -79,13 +79,11 @@ export function resetItems() {
     }
 }
 export function addCar(car) {
-    console.log(car);
     return (dispatch, getState) => {
         const state = Object.assign({}, getState());
         const items = state.table.defaultItems;
         car.id = items.length+1;
         items.push(car);
-        console.log(items);
         dispatch(receiveItems(items));
     }
 }
