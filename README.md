@@ -3,6 +3,7 @@
 ### Tecnologias utilizadas:
 - [ReactJS](https://facebook.github.io/react/)
 - [Redux](http://redux.js.org/)
+- [LESS](http://lesscss.org/)
 - [Webpack](https://webpack.github.io/)
 
 ### Scripts:
