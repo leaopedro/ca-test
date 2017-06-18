@@ -56,6 +56,28 @@ export function toggleSelectAll() {
         dispatch(setSelectedItems(items));
     }
 }
+export function triggerSearch(query) {
+    return (dispatch, getState) => {
+        query = query.toLowerCase();
+        const state = Object.assign({}, getState());
+        const newItems = state.table.defaultItems.filter((item) => {
+            return ((item.marca.toLowerCase().indexOf(query) !== -1) ||
+                (item.modelo.toLowerCase().indexOf(query) !== -1) ||
+                (item.placa.toLowerCase().indexOf(query) !== -1) ||
+                (item.valor.toLowerCase().indexOf(query) !== -1) ||
+                (item.combustivel.toLowerCase().indexOf(query) !== -1))
+        });
+        dispatch(setSelectedItems([]));
+        dispatch(receiveItems(newItems, false));
+    }
+}
+export function resetItems() {
+    return (dispatch, getState) => {
+        const state = Object.assign({}, getState());
+        let items = state.table.defaultItems;
+        dispatch(receiveItems(items));
+    }
+}
 export function fetchItems() {
     return (dispatch) => {
 //        dispatch(setLoader(true));

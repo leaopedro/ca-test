@@ -9,14 +9,35 @@ class Table extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            search: '',
+        };
 
+        this.onClickSearch = this.onClickSearch.bind(this);
+        this.onChangeSearch = this.onChangeSearch.bind(this);
+        this.onKeyPress = this.onKeyPress.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchItems();
     }
+    onClickSearch() {
+        const text = this.state.search;
+        if (text !== '') {
+            this.props.triggerSearch(text);
+        } else {
+            this.props.resetItems();
+        }
+    }
+    onChangeSearch(e) {
+        this.setState({ search: e.target.value });
+    }
 
+    onKeyPress(target) {
+        if(target.charCode==13){
+            this.onClickSearch();
+        }
+    }
     render() {
         const items = [];
         for (let i = 0; i < this.props.items.length; i++) {
@@ -32,8 +53,8 @@ class Table extends React.Component {
                     </div>
                     <div className="col-xs-6">
                         <div className="input-group">
-                            <input type="text" className="form-control" placeholder="Pesquisar" />
-                            <div className="input-group-addon">
+                            <input type="text" className="form-control" placeholder="Pesquisar" onKeyPress={this.onKeyPress} onChange={this.onChangeSearch} />
+                            <div className="input-group-addon" onClick={this.onClickSearch}>
                                 <span className="glyphicon glyphicon-search"> </span>
                             </div>
                         </div>

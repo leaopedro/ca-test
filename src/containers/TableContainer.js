@@ -1,12 +1,12 @@
 import { connect } from 'react-redux';
 import Table from '../components/Table/index.jsx';
-import { fetchItems, toggleSelected, toggleSelectAll } from '../actions';
+import { fetchItems, toggleSelected, toggleSelectAll, resetItems, triggerSearch } from '../actions';
 
 
 function mapStateToProps(state) {
     return {
         items: state.table.items,
-        length: state.table.length,
+        updated: state.table.updated,
         selectedItems: state.table.selectedItems,
     };
 }
@@ -18,6 +18,12 @@ function mapDispatchToProps(dispatch) {
         },
         toggleSelected: (id) => {
             dispatch(toggleSelected(id));
+        },
+        triggerSearch: (id) => {
+            dispatch(triggerSearch(id));
+        },
+        resetItems: () => {
+            dispatch(resetItems());
         },
         toggleSelectAll: () => {
             dispatch(toggleSelectAll());
