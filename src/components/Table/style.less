@@ -68,5 +68,39 @@ section.cars {
             }
         }
     }
+    .pages-container{
+        text-align: center;
+        margin: 20px auto;
+        .page-item{
+            display: inline-block;
+            cursor: pointer;
+            padding: 5px 8px;
+            background-color: #ffffff;
+            border: 1px solid #d2d9df;
+            color: #496886;
+            &.arrow {
+                padding: 6px 8px;
+            }
+            i {
+                font-size: 18px;
+            }
+            &.active {
+                border: 1px solid #91caf6;
+                cursor: default;
+            }
+            &:hover{
+                background-color: #fffaeb;
+            }
+            &:first-child{
+                border-bottom-left-radius: 5px;
+                border-top-left-radius: 5px;
+            }
+            &:last-child{
+                border-bottom-right-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+        }
+
+    }
 
 }

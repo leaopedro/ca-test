@@ -88,6 +88,15 @@ class Table extends React.Component {
                         </tbody>
                     </table>
                 </div>
+                <div className="pages-container">
+                    <span className="page-item arrow"><i className="fa fa-angle-double-left"></i></span>
+                    <span className="page-item active">1</span>
+                    <span className="page-item">2</span>
+                    <span className="page-item">3</span>
+                    <span className="page-item">4</span>
+                    <span className="page-item">5</span>
+                    <span className="page-item arrow"><i className="fa fa-angle-double-right"></i></span>
+                </div>
             </section>
         );
     }
